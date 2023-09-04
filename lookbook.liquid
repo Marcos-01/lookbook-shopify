@@ -103,14 +103,31 @@
     <div class="lookbook-image">
       {% for block in section.blocks %}
         <div class="lookbook-item">
-          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" usemap="#lookbook-map-{{ forloop.index }}">
-        <map name="lookbook-map-{{ forloop.index }}">
-  <area class="area-1" shape="rect" coords="{{ block.settings.area_1_coords }}" alt="{{ block.settings.product_title }}" href="javascript:void(0);" data-index="1">
-  <area class="area-2" shape="rect" coords="{{ block.settings.area_2_coords }}" alt="{{ block.settings.product_title }}" href="javascript:void(0);" data-index="2">
+          <img
+            src="{{ block.settings.image | img_url: 'master' }}"
+            alt="{{ block.settings.image.alt }}"
+            usemap="#lookbook-map-{{ forloop.index }}"
+          >
+          <map name="lookbook-map-{{ forloop.index }}">
+            <area
+              class="area-1"
+              shape="rect"
+              coords="{{ block.settings.area_1_coords }}"
+              alt="{{ block.settings.product_title }}"
+              href="javascript:void(0);"
+              data-index="1"
+            >
+            <area
+              class="area-2"
+              shape="rect"
+              coords="{{ block.settings.area_2_coords }}"
+              alt="{{ block.settings.product_title }}"
+              href="javascript:void(0);"
+              data-index="2"
+            >
+          </map>
 
-</map>
-
- <div class="lookbook-product-info">
+          <div class="lookbook-product-info">
             <h3>{{ block.settings.product_title }}</h3>
             {{ block.settings.product_description }}
           </div>
@@ -123,10 +140,20 @@
       {% for block in section.blocks %}
         <!-- Produtos associados à Área 1 -->
         <div class="carousel-item">
-          <img src="{{ block.settings.area_1_product_image | img_url: 'large' }}" alt="{{ block.settings.area_1_product_title }}">
+          <img
+            src="{{ block.settings.area_1_product_image | img_url: 'large' }}"
+            alt="{{ block.settings.area_1_product_title }}"
+          >
           <h5>{{ block.settings.area_1_product_title }}</h5>
           <p>{{ block.settings.area_1_product_price | money }}</p>
-          <button class="add-to-cart-btn" data-product-id="{{ block.settings.area_1_product_id }}" data-variant-id="{{ block.settings.area_1_variant_id }}" onclick="window.location.href='https://3f9fe5.myshopify.com/cart/add?id=46485917892903&quantity=1'">Adicionar ao Carrinho</button>
+          <button
+            class="add-to-cart-btn"
+            data-product-id="{{ block.settings.area_1_product_id }}"
+            data-variant-id="{{ block.settings.area_1_variant_id }}"
+            onclick="window.location.href='https://3f9fe5.myshopify.com/cart/add?id=46485917892903&quantity=1'"
+          >
+            Add Car
+          </button>
           <div class="carousel-dots">
             <span class="dot" onclick="goToSlide(1)"></span>
             <span class="dot" onclick="goToSlide(2)"></span>
@@ -135,10 +162,20 @@
 
         <!-- Produtos associados à Área 2 -->
         <div class="carousel-item">
-          <img src="{{ block.settings.area_2_product_image | img_url: 'large' }}" alt="{{ block.settings.area_2_product_title }}">
+          <img
+            src="{{ block.settings.area_2_product_image | img_url: 'large' }}"
+            alt="{{ block.settings.area_2_product_title }}"
+          >
           <h5>{{ block.settings.area_2_product_title }}</h5>
           <p>{{ block.settings.area_2_product_price | money }}</p>
-          <button class="add-to-cart-btn" data-product-id="{{ block.settings.area_2_product_id }}" data-variant-id="{{ block.settings.area_2_variant_id }}" onclick="window.location.href='https://3f9fe5.myshopify.com/cart/add?id=46477345751335&quantity=1'">Adicionar ao Carrinho</button>
+          <button
+            class="add-to-cart-btn"
+            data-product-id="{{ block.settings.area_2_product_id }}"
+            data-variant-id="{{ block.settings.area_2_variant_id }}"
+            onclick="window.location.href='https://3f9fe5.myshopify.com/cart/add?id=46477345751335&quantity=1'"
+          >
+            Add Car
+          </button>
           <div class="carousel-dots">
             <span class="dot" onclick="goToSlide(1)"></span>
             <span class="dot" onclick="goToSlide(2)"></span>
@@ -149,263 +186,268 @@
   </div>
 </div>
 
-<style>
-  /* Estilos para o Lookbook */
-.lookbook-container {
-  max-width: 90%;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
+{%- style -%}
+      /* Estilos para o Lookbook */
+    .lookbook-container {
+      max-width: 90%;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-.lookbook-content {
-  display: flex;
-  align-items: center;
-  width: calc(50% - 10px); /* 50% da largura com um espaço de 10px entre os elementos */
-  box-sizing: border-box;
-}
+    .lookbook-content {
+      display: flex;
+      align-items: center;
+      width: calc(50% - 10px); /* 50% da largura com um espaço de 10px entre os elementos */
+      box-sizing: border-box;
+    }
 
-.lookbook-image {
-  width: 100%; /* A imagem do lookbook ocupa toda a largura disponível */
-  box-sizing: border-box;
-  margin-left: 80px;
-}
+    .lookbook-image {
+      width: 100%; /* A imagem do lookbook ocupa toda a largura disponível */
+      box-sizing: border-box;
+      margin-left: 80px;
+    }
 
-.lookbook-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+    .lookbook-image img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-/* Estilos para o carrossel */
-.carousel {
-  width: calc(50% - 10px); /* 50% da largura com um espaço de 10px entre os elementos */
-  overflow: hidden;
-  position: relative;
-  box-sizing: border-box;
-}
+    /* Estilos para o carrossel */
+    .carousel {
+      width: calc(50% - 10px);
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+    }
 
-.carousel-dots {
-  text-align: center;
-  margin-top: 10px;
-}
+    .carousel-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
 
-.dot {
-  height: 10px;
-  width: 10px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 5px;
-  cursor: pointer;
-}
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
 
-.dot.active {
-  background-color: #333;
-}
+    .dot.active {
+      background-color: #333;
+    }
 
-.carousel-item {
-  flex: 0 0 100%;
-  padding: 20px;
-  text-align: center;
-  white-space: normal;
-  box-sizing: border-box;
-  display: none; /* Oculta todos os itens do carrossel por padrão */
-}
+    .carousel-item {
+      flex: 0 0 100%;
+      padding: 20px;
+      text-align: center;
+      white-space: normal;
+      box-sizing: border-box;
+      display: none;
+    }
 
-.carousel-item.active {
-  display: block; /* Mostra apenas o item ativo */
-}
+    .carousel-item.active {
+      display: block;
+    }
 
-.carousel-item img {
-  max-width: %;
-  height: auto;
-}
+    .carousel-item img {
+      max-width: %;
+      height: auto;
+    }
 
-/* Estilo para o botão "Add to Cart" */
-.add-to-cart-btn {
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  margin-top: 10px;
-  display: block;
-  width: 80%;
-  margin-left: auto; /* Centraliza o botão horizontalmente */
-  margin-right: auto; /* Centraliza o botão horizontalmente */
-  box-sizing: border-box;
-}
+    /* Estilo para o botão "Add to Cart" */
+    .add-to-cart-btn {
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin-top: 10px;
+      display: block;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+    }
 
 
-/* Media Query para Telas Pequenas (por exemplo, dispositivos móveis) */
-@media (max-width: 768px) {
-  .lookbook-container {
-    flex-direction: column; /* Empilhar elementos verticalmente em telas pequenas */
-  }
+    /* Media Query para Telas Pequenas (por exemplo, dispositivos móveis) */
+    @media (max-width: 768px) {
+      .lookbook-container {
+        flex-direction: column; /* Empilhar elementos verticalmente em telas pequenas */
+      }
 
-  .lookbook-content {
-    width: 100%; /* Usar toda a largura disponível em telas pequenas */
-    margin-left: 0; /* Remover margem à esquerda em telas pequenas */
-  }
+      .lookbook-content {
+        width: 100%; /* Usar toda a largura disponível em telas pequenas */
+        margin-left: 0; /* Remover margem à esquerda em telas pequenas */
+      }
 
-  .lookbook-image {
-    margin-left: 0; /* Remover margem à esquerda em telas pequenas */
-  }
+      .lookbook-image {
+        margin-left: 0; /* Remover margem à esquerda em telas pequenas */
+      }
 
-  .carousel {
-    margin-top: 20px; /* Espaço superior em telas pequenas */
-  }
+      .carousel {
+        margin-top: 20px; /* Espaço superior em telas pequenas */
+      }
 
-  .carousel-item {
-    padding: 10px; /* Reduzir o espaço interno em telas pequenas */
-  }
-}
+      .carousel-item {
+        padding: 10px; /* Reduzir o espaço interno em telas pequenas */
+      }
+    }
+
+      @media (max-width: 768px) {
 
   .carousel-item img {
-    max-width: 100%; /* A imagem ocupa a largura máxima do contêiner */
+    max-width: 100%; /
     height: auto;
-  }
+    display: block;
+    margin: 0 auto;
+
+
+  /* Media Query para Telas Pequenas (por exemplo, dispositivos móveis) */
+  @media (max-width: 768px) {
 
 
 
-
-
-
-
-
-  
-/* Alinhar o título e o preço abaixo da imagem */
-.product_title h3,
-.product_price p {
-  text-align: center;
-  margin: 10px 0; /* Espaço em cima e embaixo do título e do preço */
-}
-
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  
-
-document.addEventListener("DOMContentLoaded", function() {
-  const lookbookItems = document.querySelectorAll(".lookbook-item");
-  const carouselInner = document.querySelector('.carousel-inner');
-  let currentIndex = 0;
-  let interval;
-  let productData = [];
-  const dots = document.querySelectorAll(".dot");
-
-  // Função para avançar para o próximo slide
-  function nextSlide() {
-    if (currentIndex < productData.length - 1) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
+    .add-to-cart-btn {
+      width: 100%; /* O botão ocupa toda a largura disponível */
+      margin-left: 0; /* Remove a margem à esquerda */
+      margin-right: 0; /* Remove a margem à direita */
     }
-    updateCarousel();
   }
-
-  // Função para retroceder para o slide anterior
-  function prevSlide() {
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = productData.length - 1;
+    /* Alinhar o título e o preço abaixo da imagem */
+    .product_title h3,
+    .product_price p {
+      text-align: center;
+      margin: 10px 0;
     }
-    updateCarousel();
-  }
+{%- endstyle -%}
 
-  // Função para atualizar o carrossel
-  function updateCarousel() {
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    carouselItems.forEach((item, index) => {
-      if (index === currentIndex) {
-        item.classList.add("active");
-      } else {
-        item.classList.remove("active");
+{% javascript %}
+  src="https://code.jquery.com/jquery-3.6.0.min.js">
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const lookbookItems = document.querySelectorAll(".lookbook-item");
+      const carouselInner = document.querySelector('.carousel-inner');
+      let currentIndex = 0;
+      let interval;
+      let productData = [];
+      const dots = document.querySelectorAll(".dot");
+
+      // Função para avançar para o próximo slide
+      function nextSlide() {
+        if (currentIndex < productData.length - 1) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateCarousel();
       }
-    });
-    // Atualize os pontos de navegação aqui
+
+      // Função para retroceder para o slide anterior
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = productData.length - 1;
+        }
+        updateCarousel();
+      }
+
+      // Função para atualizar o carrossel
+      function updateCarousel() {
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        carouselItems.forEach((item, index) => {
+          if (index === currentIndex) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+        // Atualize os pontos de navegação aqui
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add("active");
+          } else {
+            dot.classList.remove("active");
+          }
+        });
+      }
+
+      // Função para buscar informações do produto com base na área clicada
+      function getProductData(areaIndex) {
+      const block = productData[areaIndex];
+      if (block) {
+        currentIndex = areaIndex; // Define o índice do carrossel com base na área clicada
+        updateCarousel();
+      }
+    }
+
+      // Obtém as URLs dos produtos associados às áreas clicadas e suas informações
+      lookbookItems.forEach((item, index) => {
+        item.addEventListener("click", function() {
+          const areaIndex = index;
+          const areaProductURL = item.querySelector("area").getAttribute("href");
+          fetchProductData(areaProductURL, areaIndex);
+        });
+      });
+
+      // Função para buscar informações do produto
+      function fetchProductData(productURL, areaIndex) {
+        fetch(productURL)
+          .then(response => response.json())
+          .then(data => {
+            productData[areaIndex] = data;
+            updateCarousel();
+          })
+          .catch(error => console.error('Erro ao buscar os dados do produto:', error));
+      }
+
+
+
+    // Adicione a funcionalidade para navegar pelos pontos
     dots.forEach((dot, index) => {
-      if (index === currentIndex) {
-        dot.classList.add("active");
-      } else {
-        dot.classList.remove("active");
+      dot.addEventListener("click", function() {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Adicione a funcionalidade para avançar o carrossel ao clicar em uma área de clique
+    lookbookItems.forEach((item, index) => {
+      item.addEventListener("click", function() {
+        const dataIndex = item.querySelector("area").getAttribute("data-index");
+        currentIndex = parseInt(dataIndex) - 1; // Subtrai 1 porque os índices começam em 1
+        updateCarousel();
+      });
+    });
+
+
+
+      // Inicialize o carrossel
+      interval = setInterval(nextSlide, 100); // Avança a cada 1 segundo (ajuste conforme necessário)
+
+      // Pausa o carrossel quando o mouse estiver sobre ele
+      carouselInner.addEventListener('mouseenter', () => {
+        clearInterval(interval);
+      });
+
+
+
+      // Adicione a funcionalidade para retroceder quando o botão anterior for clicado
+      const prevButton = document.querySelector(".prev-button");
+      if (prevButton) {
+        prevButton.addEventListener("click", function() {
+          prevSlide();
+        });
       }
     });
-  }
-
-  // Função para buscar informações do produto com base na área clicada
-  function getProductData(areaIndex) {
-  const block = productData[areaIndex];
-  if (block) {
-    currentIndex = areaIndex; // Define o índice do carrossel com base na área clicada
-    updateCarousel();
-  }
-}
-
-  // Obtém as URLs dos produtos associados às áreas clicadas e suas informações
-  lookbookItems.forEach((item, index) => {
-    item.addEventListener("click", function() {
-      const areaIndex = index;
-      const areaProductURL = item.querySelector("area").getAttribute("href");
-      fetchProductData(areaProductURL, areaIndex);
-    });
-  });
-
-  // Função para buscar informações do produto
-  function fetchProductData(productURL, areaIndex) {
-    fetch(productURL)
-      .then(response => response.json())
-      .then(data => {
-        productData[areaIndex] = data; 
-        updateCarousel(); 
-      })
-      .catch(error => console.error('Erro ao buscar os dados do produto:', error));
-  }
-
- 
-
-// Adicione a funcionalidade para navegar pelos pontos
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", function() {
-    currentIndex = index;
-    updateCarousel();
-  });
-});
-
-// Adicione a funcionalidade para avançar o carrossel ao clicar em uma área de clique
-lookbookItems.forEach((item, index) => {
-  item.addEventListener("click", function() {
-    const dataIndex = item.querySelector("area").getAttribute("data-index");
-    currentIndex = parseInt(dataIndex) - 1; // Subtrai 1 porque os índices começam em 1
-    updateCarousel();
-  });
-});
-
-
-
-  // Inicialize o carrossel
-  interval = setInterval(nextSlide, 100); // Avança a cada 1 segundo (ajuste conforme necessário)
-
-  // Pausa o carrossel quando o mouse estiver sobre ele
-  carouselInner.addEventListener('mouseenter', () => {
-    clearInterval(interval);
-  });
-
-  
-
-  // Adicione a funcionalidade para retroceder quando o botão anterior for clicado
-  const prevButton = document.querySelector(".prev-button");
-  if (prevButton) {
-    prevButton.addEventListener("click", function() {
-      prevSlide();
-    });
-  }
-});
-
-</script>
+{% endjavascript %}
